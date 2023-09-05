@@ -19,7 +19,7 @@ export default function Posts() {
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
     const [usuarios, setUsuarios] = useState('');
-    //const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
 
 
@@ -47,7 +47,7 @@ export default function Posts() {
                 setUsuarios(oldArray => [...oldArray, data]);
             });
 
-            //setLoading(false);
+            setLoading(false);
 
 
             // const data = snapshot.val();
@@ -93,13 +93,18 @@ export default function Posts() {
                 <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>Funcionários</Text>
 
 
-                <FlatList
+                {loading ?
+                    (
+                        <ActivityIndicator color="#121212" size={45} />
+                    ) :
+                    (
+                        <FlatList
                             keyExtractor={item => item.key}
                             data={usuarios}
                             renderItem={({ item }) => (<Listagem data={item} />)}
                         />
-
-
+                    )
+                }
 
 
 

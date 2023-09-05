@@ -3,8 +3,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Posts from '../pages/Posts';
-import Auth from '../pages/Auth';
 import Users from '../pages/Users';
+import Auth from '../pages/Auth';
 
 import Feather from 'react-native-vector-icons/Feather';
 
@@ -28,16 +28,16 @@ export default function Routes() {
 
       }}
     >
-     <Tab.Screen
-        name="Autenticação"
-        component={Auth}
+
+      <Tab.Screen 
+        name="Auth" 
+        component={Auth} 
         options={{
-          //headerShown: false,
           tabBarIcon: ({ color, size }) => {
             return <Feather name="log-in" color={color} size={size} />
           }
         }}
-      />   
+      />
 
       <Tab.Screen 
         name="Posts" 
